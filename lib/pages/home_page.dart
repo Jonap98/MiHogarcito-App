@@ -18,10 +18,12 @@ class _HomePageState extends State<HomePage> {
     final doggyProvider = Provider.of<DoggyService>(context);
     final size = MediaQuery.of(context).size;
     // double temperatura = 20.0;
+    double distancia = 0.0;
 
-    Future.delayed(const Duration(minutes: 1), () async {
+    Future.delayed(const Duration(seconds: 30), () async {
       doggyProvider.obtenerTemperatura();
-      // doggyProvider.obtenerDistancia();
+      doggyProvider.obtenerDistancia();
+      // distancia = doggyProvider.dist;
 
       setState(() {});
     });
@@ -77,12 +79,27 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text(
-                          'Ejecutar acción',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
+                        (doggyProvider.dist > 20)
+                            ? const Text(
+                                'La casita está vacía',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              )
+                            : (doggyProvider.dist < 19 &&
+                                    doggyProvider.dist > 12)
+                                ? const Text(
+                                    'El perrito quiere salir',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  )
+                                : const Text(
+                                    'Hay un Perrito en casa',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
                         OptionButton(
                           text: 'Abrir Puerta',
                           onPressed: () async {
