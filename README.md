@@ -27,4 +27,6 @@ Los materiales utilizados son los siguientes:
 
 ![casita1](https://user-images.githubusercontent.com/48542924/145313540-50cbd16e-6294-440a-942b-6cf65aed88a9.jpg)
 
+Video explicativo del funcionamiento:
 https://drive.google.com/file/d/1jCNiz6zeMyTxjvPd-7TB7UJhYIn5TWgQ/view?usp=sharing
+
